@@ -11,7 +11,6 @@ public class touch_input : MonoBehaviour
     public void Awake()
     {
         inpF = GetComponent<TMP_InputField>();
-        Debug.Log($"Object {gameObject.name}'s inpF is {inpF}");
     }
 
     
@@ -26,6 +25,7 @@ public class touch_input : MonoBehaviour
 
         if (inpF.text.EndsWith("\n"))
         {
+            inpF.text = inpF.text.Remove(inpF.text.Length - 1);
             answer = inpF.text;
             inpF.text = "";
             enter_pressed = true;
