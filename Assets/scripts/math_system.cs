@@ -12,7 +12,7 @@ public class math_system : MonoBehaviour
     {
         Questions = new math();
         gameObject.AddComponent<touch_input>();
-        gameObject.AddComponent<touch_input>();
+        gameObject.AddComponent<the_q>();
         Inputs = GetComponent<touch_input>();
         qu = GetComponent<the_q>();
     }
