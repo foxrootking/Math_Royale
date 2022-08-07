@@ -14,7 +14,7 @@ public class KeyGrid : MonoBehaviour
     public GameObject GenController;
 
     string[] chars_index = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "-", "0", "="};
-    //int n = 0;
+    int n = 0;
 
     void Start()
     {
@@ -34,7 +34,9 @@ public class KeyGrid : MonoBehaviour
 
                 spawnedTile.transform.SetParent(GenController.transform);
                 //(spawnedTile.transform.GetChild(0).GetChild(0).GetComponent<TextMeshPro>()).text = "test";
-                (spawnedTile.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>()).text = "blahblah"; 
+                (spawnedTile.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>()).text = $"{chars_index[n]}";
+                (spawnedTile.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>()).fontSize = 200;
+                n++;
             }
         }
     }
