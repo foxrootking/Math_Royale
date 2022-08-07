@@ -13,13 +13,13 @@ public class touch_input : MonoBehaviour
         inpF = GetComponent<TMP_InputField>();
     }
 
-    
+
     private void Update()
     {
         OnValChanged();
     }
 
-    
+
     public void OnValChanged()
     {
 
