@@ -11,7 +11,7 @@ public class KeyGrid : MonoBehaviour
     [SerializeField] int spawnOffsetX;
     [SerializeField] int spawnOffsetY;
 
-    TMP_InputField inputField;
+    public GameObject GenController;
 
     string[] chars_index = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "-", "0", "="};
     //int n = 0;
@@ -28,11 +28,13 @@ public class KeyGrid : MonoBehaviour
             for (int y = 0; y < height; y++) //Loops over height
             {
                 var spawnedTile = Instantiate(button,new Vector3(x * 290 + spawnOffsetX,y * 230 + spawnOffsetY), Quaternion.identity);
-                spawnedTile.name = $"Tile {x},{y}";
-                inputField = spawnedTile.GetComponent<TMP_InputField>();
-                spawnedTile.transform.SetParent(transform);
-                //string inputText = inputField.text;
-                //inputField.text = "0";
+                //spawnedTile.name = $"Tile {x},{y}";
+                //inputField = gameObject.GetComponent<TextMeshProUGUI>();
+                //spawnedTile.transform.SetParent(transform);
+
+                spawnedTile.transform.SetParent(GenController.transform);
+                //(spawnedTile.transform.GetChild(0).GetChild(0).GetComponent<TextMeshPro>()).text = "test";
+                (spawnedTile.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>()).text = "blahblah"; 
             }
         }
     }
