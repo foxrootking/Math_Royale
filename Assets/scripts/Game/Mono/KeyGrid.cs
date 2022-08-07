@@ -28,12 +28,8 @@ public class KeyGrid : MonoBehaviour
             for (int y = 0; y < height; y++) //Loops over height
             {
                 var spawnedTile = Instantiate(button,new Vector3(x * 290 + spawnOffsetX,y * 230 + spawnOffsetY), Quaternion.identity);
-                //spawnedTile.name = $"Tile {x},{y}";
-                //inputField = gameObject.GetComponent<TextMeshProUGUI>();
-                //spawnedTile.transform.SetParent(transform);
-
                 spawnedTile.transform.SetParent(GenController.transform);
-                //(spawnedTile.transform.GetChild(0).GetChild(0).GetComponent<TextMeshPro>()).text = "test";
+
                 (spawnedTile.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>()).text = $"{chars_index[n]}";
                 (spawnedTile.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>()).fontSize = 200;
                 n++;
