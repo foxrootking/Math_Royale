@@ -14,14 +14,14 @@ public class KeyGrid : MonoBehaviour
     public GameObject GenController;
 
     string[] chars_index = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "-", "0", "="};
-    int[] focal_sector = {10,11,9};
+    int[] focal_sector = {9,10,11};
     int focal_sector_indexer = 0;
     int n = 0;
     int sub_val = 0;
 
     void Start()
     {
-        //GenerateGrid();
+        GenerateGrid();
     }
 
     void GenerateGrid()
@@ -34,23 +34,27 @@ public class KeyGrid : MonoBehaviour
                 var spawnedTile = Instantiate(button,new Vector3(x * 290 + spawnOffsetX,y * 230 + spawnOffsetY), Quaternion.identity);
                 spawnedTile.transform.SetParent(GenController.transform);
 
-                if (n == 3)
+                if (n == 4)
                 {
                     focal_sector_indexer++;
                 }
                 
-                if (n == 7)
+                if (n == 8)
                 {
                     focal_sector_indexer++;
                 }
 
+                focal_sector_indexer = Mathf.Clamp(focal_sector_indexer,0,2);
+
                 (spawnedTile.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>()).text = $"{chars_index[focal_sector[focal_sector_indexer] + sub_val]}";
 
-                if (sub_val == -12)
+                sub_val -= 3;
+
+                if (sub_val < -9)
                 {
                     sub_val = 0;
                 }
-                sub_val -= 3;
+                
                 (spawnedTile.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>()).fontSize = 200;
                 n++;
             }
