@@ -21,7 +21,7 @@ public class KeyGrid : MonoBehaviour
 
     void Start()
     {
-        GenerateGrid();
+        //GenerateGrid();
     }
 
     void GenerateGrid()
