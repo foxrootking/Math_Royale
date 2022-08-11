@@ -72,6 +72,7 @@ public class KeyGrid : MonoBehaviour
 
     public void InputParser(string value)
     {
-        InputHandler.inpF.text = value;
+        InputHandler.stringed_input += value;
+        InputHandler.inpF.text = InputHandler.stringed_input;
     }
 }

@@ -863,8 +863,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c7e9060dd671e4f8675ad51c11eb1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inpF: {fileID: 0}
   answer: 
   enter_pressed: 0
+  stringed_input: 
 --- !u!1 &905132807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,7 +1807,7 @@ MonoBehaviour:
   ActiveObject: {fileID: 1606642451}
   spawnOffsetX: 250
   spawnOffsetY: 130
-  host: {fileID: 0}
+  host: {fileID: 721675396}
   GenController: {fileID: 1606642451}
   InputHandler: {fileID: 721675401}
 --- !u!1 &2024162580
