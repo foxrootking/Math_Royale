@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class KeyGrid : MonoBehaviour
@@ -10,8 +11,10 @@ public class KeyGrid : MonoBehaviour
     [SerializeField] GameObject ActiveObject;
     [SerializeField] int spawnOffsetX;
     [SerializeField] int spawnOffsetY;
+    [SerializeField] GameObject host;
 
     public GameObject GenController;
+    public touch_input InputHandler;
 
     string[] chars_index = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "-", "0", "="};
     int[] focal_sector = {9,10,11};
@@ -21,6 +24,7 @@ public class KeyGrid : MonoBehaviour
 
     void Start()
     {
+        InputHandler = host.GetComponent<touch_input>();
         GenerateGrid();
     }
 
@@ -47,6 +51,11 @@ public class KeyGrid : MonoBehaviour
                 focal_sector_indexer = Mathf.Clamp(focal_sector_indexer,0,2);
 
                 (spawnedTile.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>()).text = $"{chars_index[focal_sector[focal_sector_indexer] + sub_val]}";
+                spawnedTile.name = $"{chars_index[focal_sector[focal_sector_indexer] + sub_val]}";
+
+                var finalSubVal = sub_val;
+                var finalFocalSectorIndexer = focal_sector_indexer;
+                spawnedTile.GetComponent<Button>().onClick.AddListener(() => InputParser($"{chars_index[focal_sector[finalFocalSectorIndexer] + finalSubVal]}"));
 
                 sub_val -= 3;
 
@@ -59,5 +68,10 @@ public class KeyGrid : MonoBehaviour
                 n++;
             }
         }
+    }
+
+    public void InputParser(string value)
+    {
+        InputHandler.inpF.text = value;
     }
 }

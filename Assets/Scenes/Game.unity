@@ -1805,7 +1805,9 @@ MonoBehaviour:
   ActiveObject: {fileID: 1606642451}
   spawnOffsetX: 250
   spawnOffsetY: 130
+  host: {fileID: 0}
   GenController: {fileID: 1606642451}
+  InputHandler: {fileID: 721675401}
 --- !u!1 &2024162580
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using TMPro;
 
 public class touch_input : MonoBehaviour
 {
-    TMP_InputField inpF;
+    public TMP_InputField inpF;
     public string answer;
     public bool enter_pressed = false;
     public void Awake()
