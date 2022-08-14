@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         timeText = GetComponent<TMP_Text>();
+        
     }
     void Update()
     {
